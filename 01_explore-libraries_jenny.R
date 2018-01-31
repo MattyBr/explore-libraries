@@ -5,16 +5,25 @@
 ## how jenny might do this in a first exploration
 ## purposely leaving a few things to change later!
 
+
+library(tidyverse)
+library(fs)
+library(caret)
+
+lm_fit <- lm(mpg ~ ., data = mtcars)
+print(lm_fit)
+
+
 #' Which libraries does R search for packages?
 .libPaths()
 
 ## let's confirm the second element is, in fact, the default library
 .Library
-library(fs)
+
 path_real(.Library)
 
 #' Installed packages
-library(tidyverse)
+
 ipt <- installed.packages() %>%
   as_tibble()
 

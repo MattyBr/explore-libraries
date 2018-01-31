@@ -1,12 +1,46 @@
 01\_explore-libraries\_jenny.R
 ================
 mb87855
-Wed Jan 31 16:24:09 2018
+Wed Jan 31 16:38:35 2018
 
 ``` r
 ## how jenny might do this in a first exploration
 ## purposely leaving a few things to change later!
+
+
+library(tidyverse)
 ```
+
+    ## -- Attaching packages ------------------------- tidyverse 1.2.1 --
+
+    ## v ggplot2 2.2.1     v purrr   0.2.4
+    ## v tibble  1.4.2     v dplyr   0.7.4
+    ## v tidyr   0.7.2     v stringr 1.2.0
+    ## v readr   1.1.1     v forcats 0.2.0
+
+    ## -- Conflicts ---------------------------- tidyverse_conflicts() --
+    ## x dplyr::filter() masks stats::filter()
+    ## x dplyr::lag()    masks stats::lag()
+
+``` r
+library(fs)
+
+
+lm_fit <- lm(mpg ~ ., data = mtcars)
+print(lm_fit)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = mpg ~ ., data = mtcars)
+    ## 
+    ## Coefficients:
+    ## (Intercept)          cyl         disp           hp         drat  
+    ##    12.30337     -0.11144      0.01334     -0.02148      0.78711  
+    ##          wt         qsec           vs           am         gear  
+    ##    -3.71530      0.82104      0.31776      2.52023      0.65541  
+    ##        carb  
+    ##    -0.19942
 
 Which libraries does R search for packages?
 
@@ -24,28 +58,12 @@ Which libraries does R search for packages?
     ## [1] "C:/PROGRA~1/R/R-34~1.3/library"
 
 ``` r
-library(fs)
 path_real(.Library)
 ```
 
     ## C:/Program Files/R/R-3.4.3/library
 
 Installed packages
-
-``` r
-library(tidyverse)
-```
-
-    ## -- Attaching packages ------------------------- tidyverse 1.2.1 --
-
-    ## v ggplot2 2.2.1     v purrr   0.2.4
-    ## v tibble  1.4.2     v dplyr   0.7.4
-    ## v tidyr   0.7.2     v stringr 1.2.0
-    ## v readr   1.1.1     v forcats 0.2.0
-
-    ## -- Conflicts ---------------------------- tidyverse_conflicts() --
-    ## x dplyr::filter() masks stats::filter()
-    ## x dplyr::lag()    masks stats::lag()
 
 ``` r
 ipt <- installed.packages() %>%
